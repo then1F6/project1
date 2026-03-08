@@ -1,0 +1,93 @@
+.profile_acc {
+  margin-left: 5%;
+  width: 37.5%;
+  max-height: 600px;
+
+  display: grid;
+  grid-template-rows: 90px 60px 1fr 30px;
+}
+.profile_acc > header {
+  font-family: Arial;
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+
+  padding: 15px 20px;
+  height: 90px;
+}
+.profile_acc > header > div {
+  height: 60px;
+  border-radius: 50%;
+}
+.profile_acc > header > h3 {
+  height: 60px;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 30px;
+  line-height: 30px;
+  
+  min-width: 0; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.acc_info {
+  background-color: #313131;
+  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 5px 20px;
+}
+.acc_info > div {
+  height: 50px;
+  font-size: 20px;
+  font-weight: 800;
+  & h3 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+.acc_bio {
+  min-height: 200px;
+  padding: 5px 15px;
+  display: grid;
+  grid-template-columns: 1fr 30px;
+  column-gap: 10px;
+
+  & > pre {
+    font-family: 'Segoe UI';
+    text-align: start;
+    font-size: 20px;
+  }
+  & > button {
+    text-align: center;
+    color: #aaa;
+    background-color: #242424;
+    border-width: 0;
+    border-radius: 4px;
+    height: 30px;
+
+    & > svg {
+      width: 20px;
+      height: 20px;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+.acc_bio > textarea {
+  border: 2px solid #59308F;
+  background-color: #313131;
+  border-radius: 12px;
+  outline: none;
+
+  width: 100%;
+  height: 110px;
+  padding: 5px 10px;
+
+  font-size: 18px;
+  font-family: 'Segoe UI';
+  color: #fff;
+  resize: vertical;
+}

@@ -1,0 +1,159 @@
+.profile {
+  height: 100vh;
+  width: 100%;
+  padding:50px 5%;
+
+  overflow: scroll;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+
+  & > section {
+    min-height: 500px;
+    border: 2px solid #242424;
+    border-radius: 20px;
+    background-color: #242424;
+  }
+}
+.profile_info {
+  width: 57.5%;
+}
+
+
+.info_header {
+  height: 80px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 1fr 40px;
+  gap: 15px;
+
+  border-bottom: 2px solid #313131;
+
+  & > .button {
+    height: 40px;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    padding: 10px;
+
+    border-width: 0;
+    border-radius: 8px;
+    background-color: #313131;
+    color: #fff;
+    box-shadow: 0 0px 0px 0px #59308F;
+  }
+  & > .button:hover {
+    background-color: #3b3b3b;
+  }
+  & > .button > svg {
+    width: 20px;
+    height: 20px;
+  }
+  & > .button > h3 {
+    line-height: 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 300;
+  }
+}
+.info_header > .selected_info_tab {
+  box-shadow: 1px 3px 3px 0px #59308F;
+}
+.add_button {
+  border-width: 0;
+  background-color: #242424;
+  color: #fff;
+  padding: 5px;
+
+  & svg {
+    width: 30px;
+    height: 30px;
+  }
+  &:hover {
+    color: #aaa;
+  }
+}
+
+.info_main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.info_error {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+
+  color: #c24b4b;
+  text-align: center;
+
+  & > svg {
+    margin-right: 10px;
+    height: 32px;
+    width: 32px;
+  }
+}
+.info_header_create {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+
+  height: 80px;
+  padding: 20px;
+  text-align: left;
+  line-height: 40px;
+  border-bottom: 2px solid #313131;
+
+  & > button {
+    background-color: #242424;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    color: #fff;
+    border-width: 0;
+  }
+  & > button > svg {
+    width: 30px;
+    height: 30px;
+  }
+  & > button:hover {
+    color: #aaa
+  }
+}
+.info_main_create {
+  text-align: left;
+  padding: 10px 15%;
+
+  & > textarea {
+    border: 2px solid #59308F;
+    background-color: #313131;
+    border-radius: 12px;
+    outline: none;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-family: 'Segoe UI';
+    color: #fff;
+    resize: vertical;
+  }
+  & > div {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+  }
+  & button {
+    margin-top: 10px;
+    padding: 10px 40px;
+    background-color: #59308F;
+    border-width: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 12px;
+
+    &:hover {
+      background-color: #6c31b9;
+    }
+  }
+}

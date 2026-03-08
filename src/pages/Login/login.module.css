@@ -1,0 +1,345 @@
+.login_container {
+  min-height: 100vh;
+  /* background-color: #; */
+  background-color: #313131;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.article {
+  background-color: #414141;
+  width: min(980px, 100%);
+  min-height: 670px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+}
+
+.info {
+  width: 50%;
+  background: linear-gradient(160deg, rgb(89, 48, 143), rgb(66, 36, 106));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  text-align: left;
+  padding: 48px 42px;
+}
+
+.form {
+  width: 50%;
+  background-color: #242424;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 48px 42px;
+}
+
+.badge {
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.14);
+  color: #efefef;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+.title {
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.1;
+}
+
+.description {
+  color: #e7dff4;
+  line-height: 1.6;
+  max-width: 36ch;
+}
+
+.points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.points li {
+  color: #f1ebfa;
+  position: relative;
+  padding-left: 22px;
+}
+
+.points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #d8c3ff;
+}
+
+.form_title {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.form_hint {
+  color: #bcbcbc;
+  margin-bottom: 26px;
+}
+
+.form_body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@keyframes getErrors {
+  0% {
+    color: #ff6b6b00;
+  }
+  100% {
+    color: #ff6b6bFF;
+  }
+}
+
+
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  color: #d6d6d6;
+  font-size: 16px;
+
+  & > .error {
+    animation: getErrors 0.2s ease-in-out forwards;
+    color: #ff6b6b;
+    font-size: 14px;
+    min-height: 18px;
+
+    &:empty{
+      display: none;
+    }
+
+  }
+}
+
+
+
+
+.input_wrap {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  background-color: #313131;
+  color: #fff;
+  border: 1px solid #505050;
+  border-radius: 10px;
+  margin-top: 8px;
+  padding: 12px 14px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.input_with_toggle {
+  padding-right: 46px;
+}
+
+.input::placeholder {
+  color: #9f9f9f;
+}
+
+.input:focus {
+  border-color: rgb(135, 83, 202);
+  box-shadow: 0 0 0 3px rgba(135, 83, 202, 0.25);
+}
+
+.toggle_password {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  color: #b7b7b7;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle_password:hover {
+  color: #d6bcff;
+}
+
+.toggle_password svg {
+  width: 20px;
+  height: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.checkbox {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: #c8c8c8;
+  font-size: 14px;
+}
+
+.checkbox input {
+  accent-color: rgb(89, 48, 143);
+}
+
+.link {
+  color: #d6bcff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(89, 48, 143);
+  color: #fff;
+  padding: 0px 16px;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Segoe UI';
+  cursor: pointer;
+  transition: background-color 120ms ease, transform 120ms ease;
+}
+.button_padding {
+  padding: 12px 16px;
+}
+
+.button:hover {
+  background-color: rgb(104, 58, 165);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.signup {
+  margin-top: 16px;
+  color: #a7a7a7;
+  font-size: 14px;
+}
+
+.switch_button {
+  background: none;
+  border: none;
+  color: #d6bcff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.switch_button:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .article {
+    flex-direction: column;
+  }
+
+  .info,
+  .form {
+    width: 100%;
+  }
+
+  .info {
+    padding: 36px 28px;
+  }
+
+  .form {
+    padding: 34px 28px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login_container {
+    padding: 18px 12px;
+  }
+
+  .info,
+  .form {
+    padding: 28px 18px;
+  }
+
+  .form_title {
+    font-size: 28px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.spiner_container {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  padding: 3px 0;
+}
+.spiner {
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spiner svg {
+  animation: rotate 2s linear infinite;
+  width: 100%;
+  height: 100%;
+}
+
+.spiner circle {
+  stroke: #4285F4;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+}

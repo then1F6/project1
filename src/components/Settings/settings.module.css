@@ -1,0 +1,103 @@
+.settings {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+
+  padding: 50px 5%;
+  overflow: scroll;
+
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+
+}
+.settings_main {
+  min-height: 500px;
+  width: 750px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: #242424;
+}
+.section {
+  text-align: left;
+  & > h3 {
+    padding: 0 20px;
+    font-weight: 600;
+    font-size: 22px;
+  }
+}
+.parametrs_container {
+  border-radius: 12px;
+  padding: 0 8px;
+
+  & > div:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+  & > div:last-child {
+    border-radius: 0 0 12px 12px;
+    border-bottom: 2px solid #242424;
+  }
+}
+.parametr {
+  height: 60px;
+  background-color: #313131;
+  border: 2px solid #242424;
+  border-bottom-width: 0;
+
+  display: grid;
+  grid-template-columns: 60px 1fr 85px;
+
+  & > div {
+    padding: 15px;
+  }
+  & button {
+    width: 55px;
+    height: 30px;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  & svg {
+    width: 30px;
+    height: 26px;
+  }
+  & > h4 {
+    padding: 15px 0;
+    line-height: 26px;
+    font-size: 25px;
+    color: #ccc
+  }
+}
+.parametr .button {
+  display: block;
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  background-color: #8f8f8f;
+  transition: background-color 0.3s ease;
+
+  & > div {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out, background-color 0.2s;
+  }
+}
+.parametr .button_done {
+  display: block;
+  border-radius: 15px;
+  border: 1px solid #bbb;
+  background-color: #507e62;
+  transition: background-color 0.3s ease;
+
+  & > div {
+    background-color: #fff;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    transform: translateX(25px);
+    transition: transform 0.3s ease-in-out, background-color 0.2s;
+  }
+}

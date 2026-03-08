@@ -1,0 +1,29 @@
+.posts {
+  padding: 50px 150px;
+  height: 100vh;
+  overflow: scroll;
+
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+}
+.posts_container {
+  min-height: 100%;
+  flex-shrink: 0;
+
+  width: 750px;
+  padding: 5px;
+  border: 2px solid #242424;
+  border-radius: 20px;
+  background-color: #242424;
+
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+

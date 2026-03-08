@@ -1,0 +1,143 @@
+.post_card {
+  border: 2px solid #242424;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 12px;
+  display: grid;
+  grid-template-rows: 60px 1fr 40px;
+  background-color: #313131;
+
+  & > div {
+    font-size: 18px;
+    padding: 10px 20px;
+    text-align: left;
+    font-weight: 600;
+  }
+  & > div > p {
+    overflow-wrap: anywhere
+  }
+}
+.header {
+  height: 60px;
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  gap: 16px;
+  border-bottom: 2px solid #242424;
+
+  & .nick_conteiner {
+    text-align: left;
+    min-width: 0; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  & button {
+    background-color: inherit;
+    border: 0;
+    color: #fff;
+    &:hover {
+      background-color: #313131;
+      cursor: pointer;
+    }
+    & > svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  & .avatar_div {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(117, 129, 121);
+    border-radius: 50%;
+  }
+  & h3 {
+    display: inline;
+    font-size: 25px;
+    line-height: 40px;
+    text-align: left;
+  }
+}
+.header > .more_conteiner {
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 40px);
+  direction: rtl;
+  gap: 10px;
+
+  & button {
+    background-attachment: inherit;
+    padding: 10px;
+    & > svg {
+      width: 20px;
+      height: 20px;
+      color: #c44;
+    }
+    &:hover {
+      & > svg {
+        color: #a44
+      }
+    }
+  }
+  
+}
+
+
+.post_footer {
+  border-top: 2px solid #242424;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 0 20px;
+
+  & > div {
+    max-width: 100px;
+    display: grid;
+    grid-template-columns: 40px 55%;
+    gap: 5px;
+
+    & > h4 {
+      line-height: 40px;
+      font-size: 18px;
+      text-align: left;
+      color: #fff;
+    }
+
+  }
+}
+.button {
+  height: 38px;
+  border-width: 0;
+  padding: 8px;
+  background-color: inherit;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.button_done {
+  height: 38px;
+  border-width: 0;
+  padding: 7px;
+  background-color: inherit;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.svg_icon {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+.svg_icon_done {
+  width: 26px;
+  height: 26px;
+  color: #8528ff;
+}
+
+
+
+.post_card_disabled {
+  background-color: #414141;
+}
+

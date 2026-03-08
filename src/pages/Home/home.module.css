@@ -1,0 +1,30 @@
+.home_container {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  height: 100vh;
+  grid-auto-flow: column;
+}
+.aside {
+  background-color: #242424;
+  padding: 15px 5px;
+}
+.main {
+  background-color: #313131;
+}
+.user_acc_icon {
+  width: 30px;
+  height: 30px;
+
+  &:hover {
+    color: #aaa;
+    cursor: pointer;
+  }
+}
+.icons_button {
+  width: 30px;
+  height: 30px;
+  background-color: #242424;
+  border-width: 0;
+  color: #fff;
+  margin-bottom: 20px;
+}
