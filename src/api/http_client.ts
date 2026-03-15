@@ -30,7 +30,6 @@ async function basic_fetch( url: string, options: { [key: string]: any } ) {
 }
 
 
-
 class http_clinet {
   async get(path: string, optoins = {}, cookie = false) {
     if (cookie) {
@@ -61,14 +60,13 @@ class http_clinet {
   }
   async put(path: string, optoins = {}, cookie = false) {
     if (cookie) {
-      const data = await cookie_fetch(path, {method: "GET", ...optoins})
+      const data = await cookie_fetch(path, {method: "PUT", ...optoins})
       return data
     } else {
-      const data = await basic_fetch(path, {method: "GET", ...optoins})
+      const data = await basic_fetch(path, {method: "PUT", ...optoins})
       return data
     }
   }
-
 }
 
 const http = new http_clinet()

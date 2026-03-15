@@ -32,12 +32,12 @@ export async function get_created_by(profile_nick: string) {
   return data
 }
 
-export async function create_post(content: string) {
+export async function create_post(content: string, loacl_id: number) {
   const data = await http.post("/post/create", {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({content})
+    body: JSON.stringify({content, loacl_id})
   }, true)
   return data
 }

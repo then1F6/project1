@@ -8,7 +8,7 @@ import {
 import type { post, profile } from "../global_types";
 
 
-export default function usePosts(myProfile: profile | null) {
+export default function usePostsOld(myProfile: profile | null) {
   async function postsLoad() {
     const [posts, likes_id, bookmarks_id] = await Promise.all([
       get_all_posts(),

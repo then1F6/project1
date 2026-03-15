@@ -1,14 +1,35 @@
 .home_container {
   display: grid;
   grid-template-columns: 50px 1fr;
+  grid-template-rows: 50px 1fr;
   height: 100vh;
   grid-auto-flow: column;
 }
 .aside {
   background-color: #242424;
   padding: 15px 5px;
+  grid-row: 2 span;
+}
+.header {
+  background-color: #242424;
+  height: 50px;
+  padding: 10px;
+  text-align: left;
+  border-left: 2px solid #313131;
+
+  display: flex;
+  align-items: center;
+  & > h1 {
+    transform: translateY(-3px);
+
+    font-size: 27px;
+    margin: 0;
+    margin-left: 20px;
+    line-height: 1; 
+  }
 }
 .main {
+  height: calc(100vh - 50px);
   background-color: #313131;
 }
 .user_acc_icon {
@@ -27,4 +48,22 @@
   border-width: 0;
   color: #fff;
   margin-bottom: 20px;
+}
+.button, .button_dis {
+  height: 30px;
+  border: 0;
+  background-color: inherit;
+  color: #fff;
+  padding: 3px;
+  > svg { 
+    height: 24px;
+    width: 24px;
+    cursor: pointer; 
+  }
+}
+.button_dis {
+  color: #888;
+  > svg {
+    cursor: default;
+  }
 }

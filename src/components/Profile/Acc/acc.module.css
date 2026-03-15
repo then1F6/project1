@@ -1,26 +1,30 @@
 .profile_acc {
-  margin-left: 5%;
-  width: 37.5%;
-  max-height: 600px;
+  grid-column: 4;
+  width: 600px;
+  max-height: 500px;
 
   display: grid;
-  grid-template-rows: 90px 60px 1fr 30px;
+  grid-template-rows: 80px 60px 1fr 30px;
+  position: sticky;
+  top: 0px;
 }
-.profile_acc > header {
+.profile_acc > .profile_header {
   font-family: Arial;
   display: grid;
-  grid-template-columns: 60px minmax(0, 1fr);
+  grid-template-columns: 50px minmax(0, 1fr) 120px;
 
   padding: 15px 20px;
-  height: 90px;
+  height: 80px;
+  border-bottom: 2px solid #313131;
 }
-.profile_acc > header > div {
-  height: 60px;
+.profile_acc > header > .profile_color {
+  height: 50px;
   border-radius: 50%;
 }
-.profile_acc > header > h3 {
-  height: 60px;
-  padding: 15px 20px;
+
+.nick {
+  height: 50px;
+  padding: 10px 20px;
   text-align: left;
   font-size: 30px;
   line-height: 30px;
@@ -30,6 +34,44 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.nick_long {
+  height: 60px;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 30px;
+  
+  min-width: 0; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.follow_button {
+  & > button {
+    font-size: 18px;
+    font-weight: 600;
+
+    border-radius: 12px;
+    border: 0;
+    color: #fff;
+    background-color: #59308F;
+    height: 50px;
+    width: 120px;
+  }
+  & > button:hover {
+    background-color: #61359b;
+    cursor: pointer;
+  }
+}
+.followed > button {
+  background-color: #7927e6;
+
+  &:hover {
+    background-color: #6b23ca;
+  }
+}
+
 .acc_info {
   background-color: #313131;
   height: 60px;
@@ -54,7 +96,10 @@
   grid-template-columns: 1fr 30px;
   column-gap: 10px;
 
-  & > pre {
+  & > p {
+    white-space: pre-wrap;
+    word-break: break-all;
+
     font-family: 'Segoe UI';
     text-align: start;
     font-size: 20px;
@@ -90,4 +135,71 @@
   font-family: 'Segoe UI';
   color: #fff;
   resize: vertical;
+}
+
+.follows_header {
+  padding: 20px;
+  text-align: left;
+
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 40px 1fr;
+  height: 80px;
+
+  border-bottom: 2px solid #313131;
+  line-height: 40px;
+
+  & > button {
+    background-color: #242424;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    color: #fff;
+    border-width: 0;
+  }
+  & > button > svg {
+    width: 30px;
+    height: 30px;
+  }
+  & > button:hover {
+    color: #aaa
+  }
+}
+.follows_main {
+  grid-row: span 3;
+  padding: 10px 38px;
+}
+.follow_card {
+  height: 60px;
+  border-radius: 8px;
+  padding: 8px 18px;
+  background-color: #313131;
+  border: 2px solid #242424;
+
+  display: grid;
+  grid-template-columns: 40px 430px;
+  gap: 10px;
+
+  & > div.follow_color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: linear-gradient(135deg ,#1d1d1d, #2c2c2c);
+  }
+  & > h4 {
+    padding: 10px 0;
+    text-align: left;
+  }
+  & button {
+    background-color: inherit;
+    border: 0;
+    color: #fff;
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

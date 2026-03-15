@@ -1,22 +1,12 @@
 .post_card {
   border: 2px solid #242424;
   width: 100%;
-  min-height: 200px;
   border-radius: 12px;
   display: grid;
-  grid-template-rows: 60px 1fr 40px;
+  grid-template-rows: 60px minmax(100px, 1fr) 40px;
   background-color: #313131;
-
-  & > div {
-    font-size: 18px;
-    padding: 10px 20px;
-    text-align: left;
-    font-weight: 600;
-  }
-  & > div > p {
-    overflow-wrap: anywhere
-  }
 }
+
 .header {
   height: 60px;
   padding: 10px 20px;
@@ -37,7 +27,7 @@
     border: 0;
     color: #fff;
     &:hover {
-      background-color: #313131;
+      background-color: inherit;
       cursor: pointer;
     }
     & > svg {
@@ -59,30 +49,44 @@
     text-align: left;
   }
 }
-.header > .more_conteiner {
+.more_header {
+  grid-template-columns: 1fr 40px;
+}
+.more_conteiner {
   height: 40px;
   display: grid;
-  grid-template-columns: repeat(3, 40px);
+  grid-template-columns: repeat(auto-fit, 40px);
   direction: rtl;
-  gap: 10px;
+  justify-content: start;
+  gap: 6px;
 
   & button {
-    background-attachment: inherit;
+    background-color: inherit;
     padding: 10px;
-    & > svg {
-      width: 20px;
-      height: 20px;
-      color: #c44;
-    }
     &:hover {
       & > svg {
         color: #a44
       }
     }
+    & > svg {
+      width: 20px;
+      height: 20px;
+      color: #c44;
+    }
   }
   
 }
 
+.content {
+  padding: 10px 20px;
+  text-align: left;
+  & > p {
+    font-size: 18px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+}
 
 .post_footer {
   border-top: 2px solid #242424;
@@ -106,7 +110,20 @@
 
   }
 }
-.button {
+
+
+@keyframes Done {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Расширение */
+  }
+  100% {
+    transform: scale(1);   /* Возврат в норму */
+  }
+}
+.button, .button_done{
   height: 38px;
   border-width: 0;
   padding: 8px;
@@ -116,14 +133,11 @@
   }
 }
 .button_done {
-  height: 38px;
-  border-width: 0;
+  animation: Done 0.5s ease-out forwards;
   padding: 7px;
-  background-color: inherit;
-  &:hover {
-    cursor: pointer;
-  }
 }
+
+
 .svg_icon {
   width: 24px;
   height: 24px;

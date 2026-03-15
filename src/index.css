@@ -10,3 +10,30 @@ body {
   text-align: center;
   font-family: 'Segoe UI';
 }
+
+.button_wrapper {
+  display: block;
+  text-align: center;
+  width: 100%;
+
+  color: #fff;
+  background-color: inherit;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: inherit;
+  }
+}
+.button_wrapper_nick {
+  display: block;
+  text-align: left;
+  width: 100%;
+
+  color: #fff;
+  background-color: inherit;
+  border: 0;
+  &:hover {
+    cursor: pointer;
+    background-color: inherit;
+  }
+}

@@ -1,22 +1,23 @@
-import s from "./postcard.module.css"
+import { useState, memo } from "react";
 
-import { FaHeart } from "react-icons/fa";
-import { FaCommentAlt, FaTrash } from "react-icons/fa";
-import { FaBookmark } from "react-icons/fa6";
-import { MdMoreVert } from "react-icons/md";
-import { useState } from "react";
+import s from "./postcard.module.css"
+import { FaCommentAlt, FaTrash, FaHeart } from "react-icons/fa";
+import { FaBookmark, FaShare } from "react-icons/fa6";
+import { MdMoreVert, MdContentCopy } from "react-icons/md";
+import { TbMessageReport } from "react-icons/tb";
+import { FiCode } from "react-icons/fi";
 
 import ParseCount from "../../utils/parseCount"
 import useTimeout from "../../hooks/useTimeout";
-import type { profile } from "../../global_types";
 
 interface parentPD {
-  onLike: () => void,
-  onBookmark: () => void,
-  onDeletePost: () => void
+  onLike: (post_id: number) => void,
+  onBookmark: (post_id: number) => void,
+  onDeletePost: (post_id: number) => void
   onClickProfile: (profile_nick: string) => void,
 }
 interface PostCardProps extends parentPD {
+  post_id: number,
   author_color: string,
   author_nick: string,
   post_content: string,
@@ -30,9 +31,10 @@ interface PostCardProps extends parentPD {
   is_me: boolean,
 }
 
-export function PostCard(props: PostCardProps) {
+const PostCard = memo((props: PostCardProps) => {
   const {
     is_me, 
+    post_id,
 
     author_color,
     author_nick,
@@ -51,29 +53,39 @@ export function PostCard(props: PostCardProps) {
     onDeletePost,
   } = props
 
+  const handleLike = () => onLike(post_id)
+  const handleBookmark = () => onBookmark(post_id)
+  const handleDelete = () => onDeletePost(post_id)
+
   const [isOpenedMore, setIsOpenedMore] = useState(false)
-  const [onLikeTimeout, isClickedLike] = useTimeout(onLike)
-  const [onBookmarkTimeout, isClickedBookmark] = useTimeout(onBookmark)
+  const [onLikeTimeout, isClickedLike] = useTimeout(handleLike, 500)
+  const [onBookmarkTimeout, isClickedBookmark] = useTimeout(handleBookmark, 500)
   
 
   return (
 <div className={is_local ? `${s.post_card} ${s.post_card_disabled}` : s.post_card}>
-  <header className={s.header}>
-    <div style={{"backgroundColor": author_color}} className={s.avatar_div}></div>
-    {!isOpenedMore && <div className={s.nick_conteiner}><button onClick={() => {onClickProfile(author_nick)}}>
+  <header className={isOpenedMore ? `${s.header} ${s.more_header}` : s.header}>
+    {!isOpenedMore && <><div style={{"backgroundColor": author_color}} className={s.avatar_div}></div>
+    <div className={s.nick_conteiner}><button onClick={() => {onClickProfile(author_nick)}}>
        <h3>{ author_nick }</h3> 
-    </button></div>}
+    </button></div></>}
     {isOpenedMore && <div className={s.more_conteiner}>
-      {is_me
-      ? <button onClick={onDeletePost} disabled={is_local}><FaTrash /></button>
-      : "" }
+      {is_me &&
+       <button onClick={handleDelete} disabled={is_local}><FaTrash /></button>
+      }
+      <button disabled={is_local}><TbMessageReport /></button>
+      <button disabled={is_local}><MdContentCopy /></button>
+      <button disabled={is_local}><FaShare /></button>
+      <button disabled={is_local}><FaBookmark /></button>
+      <button disabled={is_local}><FaHeart /></button>
+      <button disabled={is_local}><FiCode /></button>
     </div>}
 
     <button onClick={() => setIsOpenedMore(prev => !prev)}>
       <MdMoreVert />
     </button>
   </header>
-  <div>
+  <div className={s.content}>
     <p>{ post_content }</p>
   </div> 
   <footer  className={s.post_footer}>
@@ -99,4 +111,5 @@ export function PostCard(props: PostCardProps) {
     </div>
   </footer>
 </div>)
-}
+});
+export default PostCard

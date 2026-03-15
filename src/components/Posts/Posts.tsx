@@ -1,38 +1,42 @@
-import s from "./post.module.css"
+import { useCallback, useState, useEffect } from "react"
 
-import {PostCard} from "../PostCard/PostCard"
-import type { post, profile } from "../../global_types"
+import { usePosts } from "../../contexts/PostsContext"
+
+import s from "./post.module.css"
+import PostCard from "../PostCard/PostCard"
+import type { profile, settings, post } from "../../global_types"
+
+
 
 interface PostsProps {
-  me: profile | null,
-  posts: Map<number, post>,
-  likes: Set<number>,
-  bookmarks: Set<number>,
-  onLike: (id: number) => void,
-  onBookmark: (id: number) => void,
-  onOpenOtherProfile: (profile_nick: string) => void,
-  onDeletePost: (post_id: number) => void
+  me: profile | null
+  settings: settings
+  onOpenProfile: (profile_nick: string) => void,
 }
 
 export default function PostsPage(props: PostsProps) {
-  const {
-    me, 
-    posts,
-    likes, 
-    bookmarks, 
-    onLike, 
-    onBookmark, 
-    onOpenOtherProfile,
-    onDeletePost
-  } = props;
+  const { me, onOpenProfile, settings } = props
+
+  const { posts, likes, bookmarks, 
+    onLike, onBookmark, onDeletePost,
+  } = usePosts()
+  const handleOpenProfile = useCallback(
+    (nick: string) => {onOpenProfile(nick)},
+  [])
+
+  const [renderPosts, setRenderPosts] = useState<post[]>([])
+  useEffect(() => {
+    setRenderPosts(Array.from(posts.values()).reverse())
+  }, [posts])
 
   return (
 <div className={s.posts}>
-  <section className={s.posts_container}>
+  <section className={settings.two_column_posts ? s.posts_container_two : s.post_container}>
 
-    {Array.from(posts.values()).reverse().map((post) => (
+    {renderPosts.map((post) => (
       <PostCard 
         is_me={me?.nick === post.author_nick}
+        post_id={post.id}
         key={post.id}
         author_color={post.author_color}
         author_nick={post.author_nick}
@@ -45,12 +49,14 @@ export default function PostsPage(props: PostsProps) {
         is_bookmarked={bookmarks.has(post.id)}
         is_local={post.id < 0}
         
-        onLike={() => {onLike(post.id)}}
-        onBookmark={() => {onBookmark(post.id)}}
-        onDeletePost={() => {onDeletePost(post.id)}}
-        onClickProfile={onOpenOtherProfile}
+        onLike={onLike}
+        onBookmark={onBookmark}
+        onDeletePost={onDeletePost}
+        onClickProfile={handleOpenProfile}
       />
     ))}
+  </section>
+  <section className={s.comments}>
   </section>
 </div>)
 }
